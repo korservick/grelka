@@ -14,7 +14,7 @@ Create topics:
 2. graphite-json-tree-1
 
 ## ClickHouse configuration
-1. Configurate Clickhouse according for this [instruction](https://github.com/lomik/carbon-clickhouse#clickhouse-configuration).
+1. Configure Clickhouse according to this [instruction](https://github.com/lomik/carbon-clickhouse#clickhouse-configuration).
 2. Create tables in Clickhouse:
 ```sql
 CREATE TABLE kafka_json (
