@@ -1,10 +1,10 @@
 # grelka
 Graphite relay to kafka. Simple replace of [carbon-clickhouse](https://github.com/lomik/carbon-clickhouse)
 
-This relay was made to change the model of passing metrics from: 
-    carbon-clickhouse -(push)> ClickHouse -> graphite-clickhouse -> Grafana 
-to
-    grelka -(push)> Kafka -(pull)> ClickHouse -> graphite-clickhouse -> Grafana
+This relay was made to change the model of passing metrics from:  
+**carbon-clickhouse -(push)> ClickHouse -> graphite-clickhouse -> Grafana**  
+to  
+**grelka -(push)> Kafka -(pull)> ClickHouse -> graphite-clickhouse -> Grafana**
 
 Listen on ip:port and waiting incoming messages (line graphite protocol: "metric value timestamp"). Then encapsulate to [JSONEachRow](https://clickhouse.yandex/docs/en/formats/jsoneachrow.html) format (line by line) all incoming strings and send (asynchronous) this JSONs to kafka brokers topics (data and tree seperated). 
 
