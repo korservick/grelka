@@ -4,14 +4,20 @@
 [[projects]]
   name = "github.com/Shopify/sarama"
   packages = ["."]
-  revision = "3b1b38866a79f06deddf0487d5c27ba0697ccd65"
-  version = "v1.15.0"
+  revision = "f7be6aa2bc7b2e38edf816b08b582782194a1c02"
+  version = "v1.16.0"
 
 [[projects]]
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
   version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/dgryski/go-jump"
+  packages = ["."]
+  revision = "e1f439676b570800a863c37b78d1f868f51a85fc"
 
 [[projects]]
   name = "github.com/eapache/go-resiliency"
@@ -45,7 +51,10 @@
 
 [[projects]]
   name = "github.com/pierrec/xxHash"
-  packages = ["xxHash32"]
+  packages = [
+    "xxHash32",
+    "xxHash64"
+  ]
   revision = "f051bb7f1d1aaf1b5a665d74fb6b0217712c69f7"
   version = "v0.1.1"
 
@@ -58,6 +67,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0377e50e8f9ad910b887425f80196bf2448dd00a43c451430aec10ad5b7d528f"
+  inputs-digest = "91298b26b69e2318b10ffbb1819fd5be4aacb14b58729150ddbe627729cd0760"
   solver-name = "gps-cdcl"
   solver-version = 1
