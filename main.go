@@ -107,37 +107,6 @@ func relayMetrics(conn net.Conn) {
 	)
 	defer conn.Close()
 
-	// hostname, _ := os.Hostname()
-	// remoteNameArray, err = net.LookupAddr(conn.RemoteAddr().String())
-	// // fmt.Printf("%v\n", remoteNameArray)
-	// if err != nil {
-	// 	remoteName, _, _ = net.SplitHostPort(conn.RemoteAddr().String())
-	// } else {
-	// 	remoteName = remoteNameArray[0]
-	// }
-	// if remoteName == "127.0.0.1" {
-	// 	remoteName = "localhost"
-	// }
-	// // log.Printf("Host connected:%s\n", remoteName)
-
-	// metricInternal := "carbon.ktok." + hostname + "." + remoteName + ".metrics.send"
-	// hash = xxHash64.Checksum([]byte(metricInternal), 0xC0FE)
-	// shardInternal = int(jump.Hash(hash, *topicNums))
-	// metricArray = strings.Split(metricInternal, ".")
-	// pathSend = ""
-	// for i = 0; i < len(metricArray)-1; i++ {
-	// 	pathSend = pathSend + metricArray[i] + "."
-	// 	stp = fmt.Sprintf("{\"Path\":\"%s%s\",\"Level\":%d,\"Time\":%d,\"Version\":%d}\n", *prefix, pathSend, i+1, timestamp, version)
-	// 	tree.Shard = shardInternal
-	// 	tree.Data = []byte(stp)
-	// 	trees <- tree
-	// }
-	// metricArray = nil
-	// stp = fmt.Sprintf("{\"Path\":\"%s%s\",\"Level\":%d,\"Time\":%d,\"Version\":%d}\n", *prefix, pathSend, i+1, timestamp, version)
-	// tree.Shard = shardInternal
-	// tree.Data = []byte(stp)
-	// trees <- tree
-
 	reader := bufio.NewReaderSize(conn, 4096)
 	for {
 		buf, _, err := reader.ReadLine()
@@ -298,7 +267,7 @@ func main() {
 	version := time.Now().Unix()
 	subNameArray := [2]string{".metric", ".tree"}
 	for k, subName := range subNameArray {
-		metricInternal[k] = "carbon.ktok." + hostname + subName + ".send"
+		metricInternal[k] = "carbon.grelka." + hostname + subName + ".send"
 		hash := xxHash64.Checksum([]byte(metricInternal[k]), 0xC0FE)
 		shardInternal[k] = int(jump.Hash(hash, *topicNums))
 		metricArray := strings.Split(metricInternal[k], ".")
